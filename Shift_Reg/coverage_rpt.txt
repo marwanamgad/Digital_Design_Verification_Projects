@@ -1,0 +1,1538 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /top/shift_regif
+=== Design Unit: work.shift_reg_if
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         34         0        34     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top/shift_regif --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                               clk           0           0                                0.00 
+                                       datain[5-0]           0           0                                0.00 
+                                      dataout[5-0]           0           0                                0.00 
+                                         direction               ENUM type       Value       Count 
+                                                                     RIGHT           0        0.00 
+                                                                      LEFT           0        0.00 
+                                              mode               ENUM type       Value       Count 
+                                                                     SHIFT           0        0.00 
+                                                                    ROTATE           0        0.00 
+                                             reset           0           0                                0.00 
+                                         serial_in           0           0                                0.00 
+
+Total Node Count     =         19 
+Toggled Node Count   =          0 
+Untoggled Node Count =         19 
+
+Toggle Coverage      =       0.00% (0 of 34 bins)
+
+=================================================================================
+=== Instance: /top/DUT/sva_inst
+=== Design Unit: work.shift_reg_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       4         0         4     0.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top/DUT/sva_inst/a_shift_left
+                     shift_reg_sva.sv(30)               0          0
+/top/DUT/sva_inst/a_shift_right
+                     shift_reg_sva.sv(31)               0          0
+/top/DUT/sva_inst/a_rotate_left
+                     shift_reg_sva.sv(32)               0          0
+/top/DUT/sva_inst/a_rotate_right
+                     shift_reg_sva.sv(33)               0          0
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         0         2     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /top/DUT/sva_inst
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_sva.sv
+------------------------------------IF Branch------------------------------------
+    6                                    ***0***     Count coming in to IF
+    6               1                    ***0***             if (reset)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+
+Directive Coverage:
+    Directives                       4         0         4     0.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/top/DUT/sva_inst/c_shift_left           shift_reg_sva Verilog  SVA  shift_reg_sva.sv(35)
+                                                                                 0 ZERO      
+/top/DUT/sva_inst/c_shift_right          shift_reg_sva Verilog  SVA  shift_reg_sva.sv(36)
+                                                                                 0 ZERO      
+/top/DUT/sva_inst/c_rotate_left          shift_reg_sva Verilog  SVA  shift_reg_sva.sv(37)
+                                                                                 0 ZERO      
+/top/DUT/sva_inst/c_rotate_right         shift_reg_sva Verilog  SVA  shift_reg_sva.sv(38)
+                                                                                 0 ZERO      
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       1         0         1     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top/DUT/sva_inst --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_sva.sv
+    1                                                module shift_reg_sva (input clk, reset, serial_in, direction, mode,
+    2                                                                      input [5:0] datain, dataout);
+    3                                                
+    4                                                    // Reset is asynchronous: check it immediately, not on a clock edge
+    5               1                    ***0***         always_comb begin
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         34         0        34     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top/DUT/sva_inst --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                               clk           0           0                                0.00 
+                                       datain[0-5]           0           0                                0.00 
+                                      dataout[0-5]           0           0                                0.00 
+                                         direction           0           0                                0.00 
+                                              mode           0           0                                0.00 
+                                             reset           0           0                                0.00 
+                                         serial_in           0           0                                0.00 
+
+Total Node Count     =         17 
+Toggled Node Count   =          0 
+Untoggled Node Count =         17 
+
+Toggle Coverage      =       0.00% (0 of 34 bins)
+
+=================================================================================
+=== Instance: /top/DUT
+=== Design Unit: work.shift_reg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         6         0         6     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /top/DUT
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg.v
+------------------------------------IF Branch------------------------------------
+    11                                   ***0***     Count coming in to IF
+    11              1                    ***0***        if (reset)
+    14              1                    ***0***           if (mode) // rotate
+    20              1                    ***0***              if (direction) // left
+    22              1                    ***0***              else
+Branch totals: 0 hits of 4 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    15                                   ***0***     Count coming in to IF
+    15              1                    ***0***              if (direction) // left
+    17              1                    ***0***              else
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       6         0         6     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top/DUT --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg.v
+    5                                                module shift_reg (clk, reset, serial_in, direction, mode, datain, dataout);
+    6                                                input clk, reset, serial_in, direction, mode;
+    7                                                input [5:0] datain;
+    8                                                output reg [5:0] dataout;
+    9                                                
+    10              1                    ***0***     always @(posedge clk or posedge reset) begin
+    11                                                  if (reset)
+    12              1                    ***0***           dataout <= 0;
+    13                                                  else
+    14                                                     if (mode) // rotate
+    15                                                        if (direction) // left
+    16              1                    ***0***                 dataout <= {datain[4:0], datain[5]};
+    17                                                        else
+    18              1                    ***0***                 dataout <= {datain[0], datain[5:1]};
+    19                                                     else // shift
+    20                                                        if (direction) // left
+    21              1                    ***0***                 dataout <= {datain[4:0], serial_in};
+    22                                                        else
+    23              1                    ***0***                 dataout <= {serial_in, datain[5:1]};
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         34         0        34     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top/DUT --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                               clk           0           0                                0.00 
+                                       datain[0-5]           0           0                                0.00 
+                                      dataout[5-0]           0           0                                0.00 
+                                         direction           0           0                                0.00 
+                                              mode           0           0                                0.00 
+                                             reset           0           0                                0.00 
+                                         serial_in           0           0                                0.00 
+
+Total Node Count     =         17 
+Toggled Node Count   =          0 
+Untoggled Node Count =         17 
+
+Toggle Coverage      =       0.00% (0 of 34 bins)
+
+=================================================================================
+=== Instance: /top
+=== Design Unit: work.top
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       6         0         6     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /top --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File top.sv
+    7                                                module top();
+    8                                                
+    9                                                  bit clk;
+    10                                               
+    11                                                 initial begin
+    12              1                    ***0***         clk = 0;
+    13              1                    ***0***         forever begin
+    14              1                    ***0***           #1 clk = ~clk;
+    14              2                    ***0***     
+    15                                                   end
+    16                                                 end
+    17                                               
+    18                                                 shift_reg_if shift_regif (clk);
+    19                                                 shift_reg DUT(clk, shift_regif.reset, shift_regif.serial_in, shift_regif.direction, shift_regif.mode, shift_regif.datain, shift_regif.dataout);
+    20                                                 bind shift_reg shift_reg_sva sva_inst (clk, reset, serial_in, direction, mode, datain, dataout);
+    21                                               
+    22                                                 initial begin
+    23              1                    ***0***         uvm_config_db #(virtual shift_reg_if) :: set (null, "uvm_test_top", "SHIFT_REG_IF", shift_regif);
+    24                                               
+    25              1                    ***0***         run_test ("shift_reg_test");
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                          2         0         2     0.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /top --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                               clk           0           0                                0.00 
+
+Total Node Count     =          1 
+Toggled Node Count   =          0 
+Untoggled Node Count =          1 
+
+Toggle Coverage      =       0.00% (0 of 2 bins)
+
+=================================================================================
+=== Instance: /shift_reg_seq_item_pkg
+=== Design Unit: work.shift_reg_seq_item_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        10         0        10     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_seq_item_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_seq_item.sv
+------------------------------------IF Branch------------------------------------
+    11                                   ***0***     Count coming in to IF
+    11              1                    ***0***             `uvm_object_utils(shift_reg_seq_item)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    11                                   ***0***     Count coming in to IF
+    11              2                    ***0***             `uvm_object_utils(shift_reg_seq_item)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    11                                   ***0***     Count coming in to IF
+    11              3                    ***0***             `uvm_object_utils(shift_reg_seq_item)
+    11              4                    ***0***             `uvm_object_utils(shift_reg_seq_item)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    11                                   ***0***     Count coming in to IF
+    11              5                    ***0***             `uvm_object_utils(shift_reg_seq_item)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    11                                   ***0***     Count coming in to IF
+    11              6                    ***0***             `uvm_object_utils(shift_reg_seq_item)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       2         0         2     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /shift_reg_seq_item_pkg --
+
+  File shift_reg_seq_item.sv
+----------------Focused Condition View-------------------
+Line       11 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       11 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      13         0        13     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_seq_item_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_seq_item.sv
+    1                                                package shift_reg_seq_item_pkg;
+    2                                                
+    3                                                    import shared_pkg::*;
+    4                                                
+    5                                                    import uvm_pkg::*;
+    6                                                    `include "uvm_macros.svh"
+    7                                                    
+    8                                                
+    9                                                
+    10                                                  class shift_reg_seq_item extends uvm_sequence_item;
+    11              1                    ***0***             `uvm_object_utils(shift_reg_seq_item)
+    11              2                    ***0***     
+    11              3                    ***0***     
+    11              4                    ***0***     
+    11              5                    ***0***     
+    11              6                    ***0***     
+    11              7                    ***0***     
+    11              8                    ***0***     
+    11              9                    ***0***     
+    11             10                    ***0***     
+    12                                               
+    13                                                       rand bit reset, serial_in;
+    14                                                       rand direction_e direction;
+    15                                                       rand mode_e mode;
+    16                                                       rand bit [5:0] datain;
+    17                                                       logic [5:0] dataout;
+    18                                               
+    19                                                       function new(string name="shift_reg_seq_item");
+    20              1                    ***0***                     super.new(name);
+    21                                                       endfunction
+    22                                               
+    23                                               
+    24                                                       
+    25                                                       function string convert2string();
+    26              1                    ***0***                 return $sformatf("%s reset=%0b serial_in=%0b direction=%0s mode=%0s datain=%0h dataout=%0h",
+    27                                                                           super.convert2string(),  reset, serial_in, direction.name(), mode.name(), datain, dataout);
+    28                                                       endfunction
+    29                                               
+    30                                                       
+    31                                                       function string convert2string_stimulus();
+    32              1                    ***0***                 return $sformatf("reset=%0b serial_in=%0b direction=%0s mode=%0s datain=%0h",
+
+
+=================================================================================
+=== Instance: /shift_reg_reset_seq_pkg
+=== Design Unit: work.shift_reg_reset_seq_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        10         0        10     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_reset_seq_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_reset_seq.sv
+------------------------------------IF Branch------------------------------------
+    10                                   ***0***     Count coming in to IF
+    10              1                    ***0***         `uvm_object_utils(shift_reg_reset_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    10                                   ***0***     Count coming in to IF
+    10              2                    ***0***         `uvm_object_utils(shift_reg_reset_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    10                                   ***0***     Count coming in to IF
+    10              3                    ***0***         `uvm_object_utils(shift_reg_reset_seq);
+    10              4                    ***0***         `uvm_object_utils(shift_reg_reset_seq);
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    10                                   ***0***     Count coming in to IF
+    10              5                    ***0***         `uvm_object_utils(shift_reg_reset_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    10                                   ***0***     Count coming in to IF
+    10              6                    ***0***         `uvm_object_utils(shift_reg_reset_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       2         0         2     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /shift_reg_reset_seq_pkg --
+
+  File shift_reg_reset_seq.sv
+----------------Focused Condition View-------------------
+Line       10 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       10 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      19         0        19     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_reset_seq_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_reset_seq.sv
+    1                                                package shift_reg_reset_seq_pkg;
+    2                                                
+    3                                                    import shift_reg_seq_item_pkg::*;
+    4                                                    import shared_pkg::*;
+    5                                                
+    6                                                    import uvm_pkg::*;
+    7                                                    `include "uvm_macros.svh"
+    8                                                
+    9                                                class shift_reg_reset_seq extends uvm_sequence #(shift_reg_seq_item);
+    10              1                    ***0***         `uvm_object_utils(shift_reg_reset_seq);
+    10              2                    ***0***     
+    10              3                    ***0***     
+    10              4                    ***0***     
+    10              5                    ***0***     
+    10              6                    ***0***     
+    10              7                    ***0***     
+    10              8                    ***0***     
+    10              9                    ***0***     
+    10             10                    ***0***     
+    11                                               
+    12                                                   shift_reg_seq_item seq_item;
+    13                                               
+    14                                                   function new (string name = "shift_reg_reset_seq");
+    15              1                    ***0***             super.new(name);
+    16                                                   endfunction
+    17                                               
+    18                                                   task body;
+    19              1                    ***0***             seq_item = shift_reg_seq_item::type_id::create("seq_item");
+    20                                               
+    21              1                    ***0***             start_item(seq_item);
+    22              1                    ***0***             seq_item.reset = 1;
+    23              1                    ***0***             seq_item.serial_in = 0;
+    24              1                    ***0***             seq_item.direction = direction_e'(0);
+    25              1                    ***0***             seq_item.mode = mode_e'(0);
+    26              1                    ***0***             seq_item.datain = 0;
+    27              1                    ***0***             finish_item(seq_item);
+
+
+=================================================================================
+=== Instance: /shift_reg_main_seq_pkg
+=== Design Unit: work.shift_reg_main_seq_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        10         0        10     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_main_seq_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_main_seq.sv
+------------------------------------IF Branch------------------------------------
+    8                                    ***0***     Count coming in to IF
+    8               1                    ***0***         `uvm_object_utils(shift_reg_main_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    8                                    ***0***     Count coming in to IF
+    8               2                    ***0***         `uvm_object_utils(shift_reg_main_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    8                                    ***0***     Count coming in to IF
+    8               3                    ***0***         `uvm_object_utils(shift_reg_main_seq);
+    8               4                    ***0***         `uvm_object_utils(shift_reg_main_seq);
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    8                                    ***0***     Count coming in to IF
+    8               5                    ***0***         `uvm_object_utils(shift_reg_main_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    8                                    ***0***     Count coming in to IF
+    8               6                    ***0***         `uvm_object_utils(shift_reg_main_seq);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       2         0         2     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /shift_reg_main_seq_pkg --
+
+  File shift_reg_main_seq.sv
+----------------Focused Condition View-------------------
+Line       8 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       8 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      15         0        15     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_main_seq_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_main_seq.sv
+    1                                                package shift_reg_main_seq_pkg;
+    2                                                
+    3                                                    import uvm_pkg::*;
+    4                                                    `include "uvm_macros.svh"
+    5                                                    import shift_reg_seq_item_pkg::*;
+    6                                                
+    7                                                class shift_reg_main_seq extends uvm_sequence #(shift_reg_seq_item);
+    8               1                    ***0***         `uvm_object_utils(shift_reg_main_seq);
+    8               2                    ***0***     
+    8               3                    ***0***     
+    8               4                    ***0***     
+    8               5                    ***0***     
+    8               6                    ***0***     
+    8               7                    ***0***     
+    8               8                    ***0***     
+    8               9                    ***0***     
+    8              10                    ***0***     
+    9                                                
+    10                                                   shift_reg_seq_item seq_item;
+    11                                               
+    12                                                   function new (string name = "shift_reg_main_seq");
+    13              1                    ***0***             super.new(name);
+    14                                                   endfunction
+    15                                               
+    16                                                   task body;
+    17              1                    ***0***             repeat(1000) begin
+    18              1                    ***0***                 seq_item = shift_reg_seq_item::type_id::create("seq_item");
+    19                                               
+    20              1                    ***0***                 start_item(seq_item);
+    21                                                           assert(seq_item.randomize());
+    22              1                    ***0***                 finish_item(seq_item);
+
+
+=================================================================================
+=== Instance: /shift_reg_coverage_pkg
+=== Design Unit: work.shift_reg_coverage_pkg
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      14         0        14     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_coverage_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_coverage.sv
+    1                                                package shift_reg_coverage_pkg;
+    2                                                    import uvm_pkg::*;
+    3                                                    `include "uvm_macros.svh"
+    4                                                    import shift_reg_seq_item_pkg::*;
+    5                                                
+    6                                                    class shift_reg_coverage extends uvm_component;
+    7               1                    ***0***             `uvm_component_utils(shift_reg_coverage)
+    7               2                    ***0***     
+    7               3                    ***0***     
+    8                                                
+    9                                                        uvm_analysis_export #(shift_reg_seq_item) cov_export;
+    10                                                       uvm_tlm_analysis_fifo #(shift_reg_seq_item) cov_fifo;
+    11                                                       
+    12                                                       shift_reg_seq_item seq_item_cov;
+    13                                               
+    14                                                       covergroup cvr_grp;
+    15                                                           datain_cvp    : coverpoint seq_item_cov.datain;
+    16                                                           serialin_cvp  : coverpoint seq_item_cov.serial_in;
+    17                                                           direction_cvp : coverpoint seq_item_cov.direction;
+    18                                                           mode_cvp      : coverpoint seq_item_cov.mode;
+    19                                                           mode_dir_cross: cross mode_cvp, direction_cvp;
+    20                                                       endgroup
+    21                                               
+    22                                                       function new(string name = "shift_reg_coverage", uvm_component parent = null) ;
+    23              1                    ***0***                 super.new(name, parent);
+    24              1                    ***0***                 cvr_grp = new();
+    25                                                       endfunction
+    26                                               
+    27                                                       function void build_phase(uvm_phase phase);
+    28              1                    ***0***                 super.build_phase(phase);
+    29              1                    ***0***                 cov_export = new("cov_export", this);
+    30              1                    ***0***                 cov_fifo = new("cov_fifo", this);
+    31                                                       endfunction
+    32                                               
+    33                                                       function void connect_phase(uvm_phase phase);
+    34              1                    ***0***                 super.connect_phase(phase);
+    35              1                    ***0***                 cov_export.connect(cov_fifo.analysis_export);
+    36                                                       endfunction
+    37                                               
+    38                                                       task run_phase(uvm_phase phase);
+    39              1                    ***0***                 super.run_phase(phase);
+    40              1                    ***0***                 forever begin
+    41              1                    ***0***                     cov_fifo.get(seq_item_cov);
+    42              1                    ***0***                     cvr_grp.sample();
+
+
+=================================================================================
+=== Instance: /shift_reg_scoreboard_pkg
+=== Design Unit: work.shift_reg_scoreboard_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        21         0        21     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_scoreboard_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_scoreboard.sv
+------------------------------------IF Branch------------------------------------
+    42                                   ***0***     Count coming in to IF
+    42              1                    ***0***                     if (seq_item_sb.dataout != shift_reg_out_ref) begin
+    46              1                    ***0***                     else begin
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    43                                   ***0***     Count coming in to IF
+    43              1                    ***0***                         `uvm_error("run_phase", $sformatf("Comparison failed, Transaction received by the DUT:%s  While the reference output was :%0h", seq_item_sb.convert2string(), shift_reg_out_ref))
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    47                                   ***0***     Count coming in to IF
+    47              1                    ***0***                         `uvm_info("run_phase", $sformatf("Correct shift_reg out: %s ", seq_item_sb.convert2string()), UVM_HIGH);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    54                                   ***0***     Count coming in to IF
+    54              1                    ***0***                 if (seq_item_chk.reset)
+    56              1                    ***0***                 else
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------CASE Branch------------------------------------
+    57                                   ***0***     Count coming in to CASE
+    58              1                    ***0***                         SHIFT:
+    63              1                    ***0***                         ROTATE:
+                                         ***0***     All False Count
+Branch totals: 0 hits of 3 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    59                                   ***0***     Count coming in to IF
+    59              1                    ***0***                             if (seq_item_chk.direction == LEFT)
+    61              1                    ***0***                             else if (seq_item_chk.direction == RIGHT)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 3 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    64                                   ***0***     Count coming in to IF
+    64              1                    ***0***                             if (seq_item_chk.direction == LEFT)
+    66              1                    ***0***                             else if (seq_item_chk.direction == RIGHT)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 3 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    73                                   ***0***     Count coming in to IF
+    73              1                    ***0***                 `uvm_info("report_phase", $sformatf("Total successful transactions: %0d",correct_count), UVM_MEDIUM);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    74                                   ***0***     Count coming in to IF
+    74              1                    ***0***                 `uvm_info("report_phase", $sformatf("Total failed transactions: %0d",error_count), UVM_MEDIUM);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       1         0         1     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /shift_reg_scoreboard_pkg --
+
+  File shift_reg_scoreboard.sv
+----------------Focused Condition View-------------------
+Line       42 Item    1  (this.seq_item_sb.dataout != this.shift_reg_out_ref)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+                                            Input Term   Covered  Reason for no coverage   Hint
+                                           -----------  --------  -----------------------  --------------
+  (this.seq_item_sb.dataout != this.shift_reg_out_ref)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target                                              Non-masking condition(s)      
+ ---------  ---------  --------------------                                    -------------------------     
+  Row   1:    ***0***  (this.seq_item_sb.dataout != this.shift_reg_out_ref)_0  -                             
+  Row   2:    ***0***  (this.seq_item_sb.dataout != this.shift_reg_out_ref)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      27         0        27     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_scoreboard_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_scoreboard.sv
+    1                                                package shift_reg_scoreboard_pkg;
+    2                                                    import uvm_pkg::*;
+    3                                                    `include "uvm_macros.svh"
+    4                                                    import shift_reg_seq_item_pkg::*;
+    5                                                    import shared_pkg::*;
+    6                                                
+    7                                                    class shift_reg_scoreboard extends uvm_scoreboard;
+    8               1                    ***0***             `uvm_component_utils(shift_reg_scoreboard)
+    8               2                    ***0***     
+    8               3                    ***0***     
+    9                                                
+    10                                                       uvm_analysis_export #(shift_reg_seq_item) sb_export;
+    11                                                       uvm_tlm_analysis_fifo #(shift_reg_seq_item) sb_fifo;
+    12                                               
+    13                                                       shift_reg_seq_item seq_item_sb;
+    14                                               
+    15                                                       logic [5:0] shift_reg_out_ref;
+    16                                               
+    17              1                    ***0***             int error_count = 0;
+    18              1                    ***0***             int correct_count = 0;
+    19                                               
+    20                                                       function new(string name = "shift_reg_scoreboard", uvm_component parent = null);
+    21              1                    ***0***                 super.new(name, parent);
+    22                                                       endfunction
+    23                                               
+    24                                                       function void build_phase(uvm_phase phase);
+    25              1                    ***0***                 super.build_phase(phase);
+    26              1                    ***0***                 sb_export = new("sb_export", this);
+    27              1                    ***0***                 sb_fifo = new("sb_fifo", this);
+    28                                                       endfunction
+    29                                               
+    30                                                       function void connect_phase(uvm_phase phase);
+    31              1                    ***0***                 super.connect_phase(phase);
+    32              1                    ***0***                 sb_export.connect(sb_fifo.analysis_export);
+    33                                                       endfunction
+    34                                               
+    35                                               
+    36                                                       task run_phase(uvm_phase phase);
+    37              1                    ***0***                 super.run_phase(phase);
+    38              1                    ***0***                 forever begin
+    39              1                    ***0***                     sb_fifo.get(seq_item_sb);
+    40              1                    ***0***                     ref_model(seq_item_sb);
+    41                                                               
+    42                                                               if (seq_item_sb.dataout != shift_reg_out_ref) begin
+    43              1                    ***0***                         `uvm_error("run_phase", $sformatf("Comparison failed, Transaction received by the DUT:%s  While the reference output was :%0h", seq_item_sb.convert2string(), shift_reg_out_ref))
+    44              1                    ***0***                         error_count++;
+    45                                                               end
+    46                                                               else begin
+    47              1                    ***0***                         `uvm_info("run_phase", $sformatf("Correct shift_reg out: %s ", seq_item_sb.convert2string()), UVM_HIGH);
+    48              1                    ***0***                         correct_count++;
+    49                                                               end
+    50                                                           end
+    51                                                       endtask
+    52                                               
+    53                                                       task ref_model(shift_reg_seq_item seq_item_chk);
+    54                                                           if (seq_item_chk.reset)
+    55              1                    ***0***                     shift_reg_out_ref = 0;
+    56                                                           else
+    57                                                               case (seq_item_chk.mode)
+    58                                                                   SHIFT:
+    59                                                                       if (seq_item_chk.direction == LEFT)
+    60              1                    ***0***                                 shift_reg_out_ref = {seq_item_chk.datain[4:0], seq_item_chk.serial_in};
+    61                                                                       else if (seq_item_chk.direction == RIGHT)
+    62              1                    ***0***                                 shift_reg_out_ref = {seq_item_chk.serial_in, seq_item_chk.datain[5:1]};
+    63                                                                   ROTATE:
+    64                                                                       if (seq_item_chk.direction == LEFT)
+    65              1                    ***0***                                 shift_reg_out_ref = {seq_item_chk.datain[4:0], seq_item_chk.datain[5]};
+    66                                                                       else if (seq_item_chk.direction == RIGHT)
+    67              1                    ***0***                                 shift_reg_out_ref = {seq_item_chk.datain[0], seq_item_chk.datain[5:1]};
+    68                                                               endcase
+    69                                                       endtask
+    70                                               
+    71                                                       function void report_phase(uvm_phase phase);
+    72              1                    ***0***                 super.report_phase(phase);
+    73              1                    ***0***                 `uvm_info("report_phase", $sformatf("Total successful transactions: %0d",correct_count), UVM_MEDIUM);
+    74              1                    ***0***                 `uvm_info("report_phase", $sformatf("Total failed transactions: %0d",error_count), UVM_MEDIUM);
+
+
+=================================================================================
+=== Instance: /shift_reg_config_pkg
+=== Design Unit: work.shift_reg_config_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        10         0        10     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_config_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_config.sv
+------------------------------------IF Branch------------------------------------
+    7                                    ***0***     Count coming in to IF
+    7               1                    ***0***         `uvm_object_utils(shift_reg_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    7                                    ***0***     Count coming in to IF
+    7               2                    ***0***         `uvm_object_utils(shift_reg_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    7                                    ***0***     Count coming in to IF
+    7               3                    ***0***         `uvm_object_utils(shift_reg_config)
+    7               4                    ***0***         `uvm_object_utils(shift_reg_config)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    7                                    ***0***     Count coming in to IF
+    7               5                    ***0***         `uvm_object_utils(shift_reg_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    7                                    ***0***     Count coming in to IF
+    7               6                    ***0***         `uvm_object_utils(shift_reg_config)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       2         0         2     0.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /shift_reg_config_pkg --
+
+  File shift_reg_config.sv
+----------------Focused Condition View-------------------
+Line       7 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       7 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      11         0        11     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_config_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_config.sv
+    1                                                package shift_reg_config_pkg;
+    2                                                
+    3                                                     import uvm_pkg::*;                
+    4                                                    `include "uvm_macros.svh"          
+    5                                                
+    6                                                class shift_reg_config extends uvm_object;
+    7               1                    ***0***         `uvm_object_utils(shift_reg_config)
+    7               2                    ***0***     
+    7               3                    ***0***     
+    7               4                    ***0***     
+    7               5                    ***0***     
+    7               6                    ***0***     
+    7               7                    ***0***     
+    7               8                    ***0***     
+    7               9                    ***0***     
+    7              10                    ***0***     
+    8                                                
+    9                                                     virtual shift_reg_if shift_reg_vif;
+    10                                               
+    11                                                    function new(string name="shift_reg_config");
+    12              1                    ***0***             super.new(name) ;
+
+
+=================================================================================
+=== Instance: /shift_reg_monitor_pkg
+=== Design Unit: work.shift_reg_monitor_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         0         2     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_monitor_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_monitor.sv
+------------------------------------IF Branch------------------------------------
+    42                                   ***0***     Count coming in to IF
+    42              1                    ***0***                     `uvm_info("run_phase", rsp_seq_item.convert2string(), UVM_HIGH)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      18         0        18     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_monitor_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_monitor.sv
+    1                                                package shift_reg_monitor_pkg;
+    2                                                    import uvm_pkg::*;
+    3                                                    `include "uvm_macros.svh"
+    4                                                    import shift_reg_seq_item_pkg::*;
+    5                                                    import shift_reg_config_pkg::*;
+    6                                                    import shared_pkg::*;
+    7                                                
+    8                                                    class shift_reg_monitor extends uvm_monitor;
+    9               1                    ***0***             `uvm_component_utils(shift_reg_monitor)
+    9               2                    ***0***     
+    9               3                    ***0***     
+    10                                               
+    11                                                       virtual shift_reg_if shift_reg_vif;
+    12                                                       shift_reg_seq_item rsp_seq_item;
+    13                                               
+    14                                                       uvm_analysis_port #(shift_reg_seq_item) mon_ap;
+    15                                               
+    16                                                       function new(string name = "shift_reg_monitor", uvm_component parent = null);
+    17              1                    ***0***                 super.new(name, parent);
+    18                                                       endfunction
+    19                                               
+    20                                                       function void build_phase(uvm_phase phase);
+    21              1                    ***0***                 super.build_phase(phase);
+    22              1                    ***0***                 mon_ap = new("mon_ap", this);
+    23                                                       endfunction: build_phase
+    24                                               
+    25                                               
+    26                                                       task run_phase(uvm_phase phase);
+    27              1                    ***0***                 super.run_phase(phase);
+    28              1                    ***0***                 forever begin
+    29              1                    ***0***                     rsp_seq_item = shift_reg_seq_item::type_id::create("rsp_seq_item");
+    30                                               
+    31              1                    ***0***                     @(negedge shift_reg_vif.clk);
+    32                                               
+    33              1                    ***0***                     rsp_seq_item.direction = direction_e'(shift_reg_vif.direction);
+    34              1                    ***0***                     rsp_seq_item.mode = mode_e'(shift_reg_vif.mode);
+    35              1                    ***0***                     rsp_seq_item.datain = shift_reg_vif.datain;
+    36              1                    ***0***                     rsp_seq_item.serial_in = shift_reg_vif.serial_in;
+    37              1                    ***0***                     rsp_seq_item.reset = shift_reg_vif.reset;
+    38              1                    ***0***                     rsp_seq_item.dataout = shift_reg_vif.dataout;
+    39                                               
+    40              1                    ***0***                     mon_ap.write(rsp_seq_item);
+    41                                                               
+    42              1                    ***0***                     `uvm_info("run_phase", rsp_seq_item.convert2string(), UVM_HIGH)
+
+
+=================================================================================
+=== Instance: /shift_reg_driver_pkg
+=== Design Unit: work.shift_reg_driver_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         0         2     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_driver_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_driver.sv
+------------------------------------IF Branch------------------------------------
+    39                                   ***0***     Count coming in to IF
+    39              1                    ***0***                     `uvm_info("run_phase", stim_seq_item.convert2string_stimulus(), UVM_HIGH)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      15         0        15     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_driver_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_driver.sv
+    1                                                package shift_reg_driver_pkg;
+    2                                                   
+    3                                                    import shift_reg_config_pkg::*;
+    4                                                    import shift_reg_seq_item_pkg::*;
+    5                                                
+    6                                                     import uvm_pkg::*;
+    7                                                     `include "uvm_macros.svh"
+    8                                                
+    9                                                
+    10                                                   class shift_reg_driver extends uvm_driver #(shift_reg_seq_item);
+    11                                               
+    12              1                    ***0***             `uvm_component_utils(shift_reg_driver)
+    12              2                    ***0***     
+    12              3                    ***0***     
+    13                                               
+    14                                                       virtual shift_reg_if shift_reg_vif;
+    15                                                       shift_reg_seq_item stim_seq_item;
+    16                                               
+    17                                               
+    18                                                       function new(string name = "shift_reg_driver",uvm_component parent = null);
+    19              1                    ***0***                 super.new(name, parent);
+    20                                                       endfunction
+    21                                               
+    22                                               
+    23                                                       task run_phase(uvm_phase phase);
+    24              1                    ***0***                 forever begin
+    25              1                    ***0***                     stim_seq_item = shift_reg_seq_item::type_id::create("stim_seq_item");
+    26                                               
+    27              1                    ***0***                     seq_item_port.get_next_item(stim_seq_item);
+    28                                                   
+    29              1                    ***0***                     shift_reg_vif.direction = stim_seq_item.direction;
+    30              1                    ***0***                     shift_reg_vif.mode = stim_seq_item.mode;
+    31              1                    ***0***                     shift_reg_vif.datain = stim_seq_item.datain;
+    32              1                    ***0***                     shift_reg_vif.serial_in = stim_seq_item.serial_in;
+    33              1                    ***0***                     shift_reg_vif.reset = stim_seq_item.reset;
+    34                                               
+    35              1                    ***0***                     @(negedge shift_reg_vif.clk);
+    36                                               
+    37              1                    ***0***                     seq_item_port.item_done();
+    38                                                               
+    39              1                    ***0***                     `uvm_info("run_phase", stim_seq_item.convert2string_stimulus(), UVM_HIGH)
+
+
+=================================================================================
+=== Instance: /shift_reg_sequencer_pkg
+=== Design Unit: work.shift_reg_sequencer_pkg
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       4         0         4     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_sequencer_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_sequencer.sv
+    1                                                package shift_reg_sequencer_pkg;
+    2                                                
+    3                                                    import shift_reg_seq_item_pkg::*;
+    4                                                
+    5                                                    import uvm_pkg::*;   
+    6                                                    `include "uvm_macros.svh"
+    7                                                
+    8                                                    class shift_reg_sequencer extends uvm_sequencer #(shift_reg_seq_item);
+    9               1                    ***0***             `uvm_component_utils(shift_reg_sequencer)
+    9               2                    ***0***     
+    9               3                    ***0***     
+    10                                               
+    11                                                       function new(string name="shift_reg_sequencer", uvm_component parent = null);
+    12              1                    ***0***                 super.new(name,parent);
+
+
+=================================================================================
+=== Instance: /shift_reg_agent_pkg
+=== Design Unit: work.shift_reg_agent_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         4         0         4     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_agent_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_agent.sv
+------------------------------------IF Branch------------------------------------
+    29                                   ***0***     Count coming in to IF
+    29              1                    ***0***                 if (!uvm_config_db #(shift_reg_config)::get(this , "", "CFG", shift_reg_cfg))begin
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    30                                   ***0***     Count coming in to IF
+    30              1                    ***0***                     `uvm_fatal("build_phase" , "Unable to get configuration object")
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      14         0        14     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_agent_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_agent.sv
+    1                                                package shift_reg_agent_pkg;
+    2                                                
+    3                                                    import shift_reg_sequencer_pkg::*;
+    4                                                    import shift_reg_driver_pkg::*;
+    5                                                    import shift_reg_monitor_pkg::*;
+    6                                                    import shift_reg_config_pkg::*;
+    7                                                    import shift_reg_seq_item_pkg::*;
+    8                                                
+    9                                                    import uvm_pkg::*;
+    10                                                   `include "uvm_macros.svh"
+    11                                               
+    12                                                   class shift_reg_agent extends uvm_agent;
+    13              1                    ***0***             `uvm_component_utils(shift_reg_agent)
+    13              2                    ***0***     
+    13              3                    ***0***     
+    14                                               
+    15                                                       shift_reg_sequencer sqr;
+    16                                                       shift_reg_driver drv;
+    17                                                       shift_reg_monitor mon;
+    18                                                       shift_reg_config shift_reg_cfg;
+    19                                               
+    20                                                       uvm_analysis_port #(shift_reg_seq_item) agt_ap;
+    21                                               
+    22                                                       function new (string name = "shift_reg_agent", uvm_component parent = null);
+    23              1                    ***0***                 super.new(name,parent);
+    24                                                       endfunction
+    25                                               
+    26                                                       function void build_phase(uvm_phase phase);
+    27              1                    ***0***                 super.build_phase(phase);
+    28                                               
+    29                                                           if (!uvm_config_db #(shift_reg_config)::get(this , "", "CFG", shift_reg_cfg))begin
+    30              1                    ***0***                     `uvm_fatal("build_phase" , "Unable to get configuration object")
+    31                                                           end
+    32                                               
+    33              1                    ***0***                 sqr = shift_reg_sequencer::type_id::create("sqr",this);
+    34              1                    ***0***                 drv = shift_reg_driver::type_id::create("drv",this);
+    35              1                    ***0***                 mon = shift_reg_monitor::type_id::create("mon",this);
+    36                                               
+    37              1                    ***0***                 agt_ap = new("agt_ap", this);
+    38                                               
+    39                                                       endfunction
+    40                                               
+    41                                                       function void connect_phase(uvm_phase phase);
+    42              1                    ***0***                 drv.shift_reg_vif = shift_reg_cfg.shift_reg_vif;
+    43              1                    ***0***                 mon.shift_reg_vif = shift_reg_cfg.shift_reg_vif;
+    44                                               
+    45              1                    ***0***                 drv.seq_item_port.connect(sqr.seq_item_export);
+    46              1                    ***0***                 mon.mon_ap.connect(agt_ap);
+
+
+=================================================================================
+=== Instance: /shift_reg_env_pkg
+=== Design Unit: work.shift_reg_env_pkg
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      11         0        11     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_env_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_env.sv
+    1                                                package shift_reg_env_pkg;
+    2                                                
+    3                                                import shift_reg_agent_pkg::*;
+    4                                                import shift_reg_scoreboard_pkg::*;   
+    5                                                import shift_reg_coverage_pkg::*;
+    6                                                
+    7                                                import uvm_pkg::*;
+    8                                                `include "uvm_macros.svh"
+    9                                                
+    10                                               class shift_reg_env extends uvm_env;
+    11                                               
+    12              1                    ***0***       `uvm_component_utils(shift_reg_env)
+    12              2                    ***0***     
+    12              3                    ***0***     
+    13                                               
+    14                                                 shift_reg_agent agt;
+    15                                                 shift_reg_scoreboard sb;            
+    16                                                 shift_reg_coverage cov;            
+    17                                               
+    18                                                 function new (string name = "shift_reg_env", uvm_component parent = null);
+    19              1                    ***0***         super.new(name,parent);
+    20                                                 endfunction
+    21                                               
+    22                                                 function void build_phase(uvm_phase phase);
+    23              1                    ***0***           super.build_phase(phase);
+    24              1                    ***0***           agt = shift_reg_agent::type_id::create("agt",this);
+    25              1                    ***0***           sb  = shift_reg_scoreboard::type_id::create("sb",this);   
+    26              1                    ***0***           cov = shift_reg_coverage::type_id::create("cov",this);    
+    27                                                  endfunction
+    28                                               
+    29                                                 function void connect_phase(uvm_phase phase);                 // ADD entire function
+    30              1                    ***0***           super.connect_phase(phase);
+    31                                                     
+    32              1                    ***0***           agt.agt_ap.connect(sb.sb_export);
+    33              1                    ***0***           agt.agt_ap.connect(cov.cov_export);
+
+
+=================================================================================
+=== Instance: /shift_reg_test_pkg
+=== Design Unit: work.shift_reg_test_pkg
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        12         0        12     0.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /shift_reg_test_pkg
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_test.sv
+------------------------------------IF Branch------------------------------------
+    38                                   ***0***     Count coming in to IF
+    38              1                    ***0***         if(!uvm_config_db #(virtual shift_reg_if) :: get (this, "", "SHIFT_REG_IF",shift_reg_cfg.shift_reg_vif) )
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    39                                   ***0***     Count coming in to IF
+    39              1                    ***0***           `uvm_fatal("build_phase", "Test - Unable to get virtual interface");
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    52                                   ***0***     Count coming in to IF
+    52              1                    ***0***         `uvm_info("run_phase", "Reset Asserted", UVM_LOW)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    54                                   ***0***     Count coming in to IF
+    54              1                    ***0***         `uvm_info("run_phase", "Reset De-asserted", UVM_LOW)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    56                                   ***0***     Count coming in to IF
+    56              1                    ***0***          `uvm_info("run_phase", "Stimulus Generation Started", UVM_LOW)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    58                                   ***0***     Count coming in to IF
+    58              1                    ***0***         `uvm_info("run_phase", "Stimulus Generation Ended", UVM_LOW)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      20         0        20     0.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /shift_reg_test_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File shift_reg_test.sv
+    8                                                package shift_reg_test_pkg;
+    9                                                
+    10                                                 import shift_reg_env_pkg::*;
+    11                                                 import shift_reg_config_pkg::*;
+    12                                                 import shift_reg_main_seq_pkg::*;
+    13                                                 import shift_reg_reset_seq_pkg::*;
+    14                                               
+    15                                                 import uvm_pkg::*;
+    16                                                 `include "uvm_macros.svh"
+    17                                               
+    18                                               class shift_reg_test extends uvm_test;
+    19              1                    ***0***       `uvm_component_utils(shift_reg_test)
+    19              2                    ***0***     
+    19              3                    ***0***     
+    20                                               
+    21                                                  shift_reg_env env;
+    22                                                  shift_reg_config shift_reg_cfg;
+    23                                                  shift_reg_main_seq main_seq;
+    24                                                  shift_reg_reset_seq reset_seq;
+    25                                               
+    26                                                 function new(string name="shift_reg_test", uvm_component parent = null);
+    27              1                    ***0***        super.new(name,parent) ;
+    28                                                 endfunction
+    29                                               
+    30                                                 function void build_phase (uvm_phase phase);
+    31              1                    ***0***         super.build_phase(phase);
+    32              1                    ***0***         env = shift_reg_env::type_id::create("env",this);
+    33              1                    ***0***         shift_reg_cfg = shift_reg_config::type_id::create("shift_reg_cfg",this);
+    34              1                    ***0***         main_seq = shift_reg_main_seq::type_id::create("main_seq");
+    35              1                    ***0***         reset_seq = shift_reg_reset_seq::type_id::create("reset_seq");
+    36                                               
+    37                                               
+    38                                                   if(!uvm_config_db #(virtual shift_reg_if) :: get (this, "", "SHIFT_REG_IF",shift_reg_cfg.shift_reg_vif) )
+    39              1                    ***0***           `uvm_fatal("build_phase", "Test - Unable to get virtual interface");
+    40                                               
+    41              1                    ***0***         uvm_config_db #(shift_reg_config) :: set (this, "*", "CFG", shift_reg_cfg);
+    42                                               
+    43                                                 endfunction
+    44                                               
+    45                                               
+    46                                               
+    47                                                 task run_phase(uvm_phase phase);
+    48              1                    ***0***         super.run_phase(phase);
+    49                                               
+    50              1                    ***0***         phase.raise_objection(this);
+    51                                                   
+    52              1                    ***0***         `uvm_info("run_phase", "Reset Asserted", UVM_LOW)
+    53              1                    ***0***         reset_seq.start(env.agt.sqr);
+    54              1                    ***0***         `uvm_info("run_phase", "Reset De-asserted", UVM_LOW)
+    55                                               
+    56              1                    ***0***          `uvm_info("run_phase", "Stimulus Generation Started", UVM_LOW)
+    57              1                    ***0***         main_seq.start(env.agt.sqr);
+    58              1                    ***0***         `uvm_info("run_phase", "Stimulus Generation Ended", UVM_LOW)
+    59                                               
+    60              1                    ***0***         phase.drop_objection(this);
+
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/top/DUT/sva_inst/c_shift_left           shift_reg_sva Verilog  SVA  shift_reg_sva.sv(35)
+                                                                                 0 ZERO      
+/top/DUT/sva_inst/c_shift_right          shift_reg_sva Verilog  SVA  shift_reg_sva.sv(36)
+                                                                                 0 ZERO      
+/top/DUT/sva_inst/c_rotate_left          shift_reg_sva Verilog  SVA  shift_reg_sva.sv(37)
+                                                                                 0 ZERO      
+/top/DUT/sva_inst/c_rotate_right         shift_reg_sva Verilog  SVA  shift_reg_sva.sv(38)
+                                                                                 0 ZERO      
+
+TOTAL DIRECTIVE COVERAGE: 0.00%  COVERS: 4
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top/DUT/sva_inst/a_shift_left
+                     shift_reg_sva.sv(30)               0          0
+/top/DUT/sva_inst/a_shift_right
+                     shift_reg_sva.sv(31)               0          0
+/top/DUT/sva_inst/a_rotate_left
+                     shift_reg_sva.sv(32)               0          0
+/top/DUT/sva_inst/a_rotate_right
+                     shift_reg_sva.sv(33)               0          0
+
+Total Coverage By Instance (filtered view): 0.00%
+
