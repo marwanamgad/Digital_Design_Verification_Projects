@@ -113,8 +113,10 @@ DSP48A1/
 │   └── DSP48A1.xdc
 ├── Vivado/
 │   └── ...
-├── Simulation/
-│   └── waveforms/
+├── Lint
+|
+├── Pdfs
+|
 └── README.md
 ```
 
