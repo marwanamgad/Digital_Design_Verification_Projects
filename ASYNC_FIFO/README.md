@@ -59,11 +59,16 @@ async-fifo-uvm/
 │   ├── run.do              QuestaSim script
 │   ├── src_files.list      compile order
 │   └── mem.dat             initial memory contents
-├── reports/                coverage reports written by run.do
-│   ├── FIFO_functional_coverage.txt
-│   ├── FIFO_assertion_coverage.txt
-│   ├── FIFO_code_coverage.txt
-│   └── FIFO_cov.ucdb
+├── reports/                coverage results
+│   ├── FIFO_cov_report.txt     functional coverage (text)
+│   ├── FIFO_sva_report.txt     assertions (text)
+│   ├── functional_cov.png
+│   ├── statement_cov.png
+│   ├── branch_cov.png
+│   ├── condition_cov.png
+│   ├── expression_cov.png
+│   ├── toggle_cov.png
+│   └── assertions.png
 └── docs/
     ├── images/             diagrams used in this README
     └── waveforms/          QuestaSim waveform snapshots
@@ -356,9 +361,9 @@ or open QuestaSim in `sim/` and type `do run.do`.
 
 | File | Content |
 |---|---|
-| `FIFO_functional_coverage.txt` | functional coverage (covergroups) |
-| `FIFO_assertion_coverage.txt` | assertion pass/fail and cover hits |
-| `FIFO_code_coverage.txt` | code coverage of the DUT |
+| `FIFO_cov_report.txt` | functional coverage (covergroups) |
+| `FIFO_sva_report.txt` | assertion pass/fail and cover hits |
+| `FIFO_code_cov_report.txt` | code coverage of the DUT |
 | `FIFO_cov.ucdb` | coverage database (`vsim -viewcov FIFO_cov.ucdb`) |
 
 A clean run ends with `Total failed checks: 0` from the scoreboard and no assertion failures.
@@ -411,27 +416,80 @@ UVM_INFO ... [report_phase] Total successful checks: <N>
 UVM_INFO ... [report_phase] Total failed checks: 0
 ```
 
-### 13.5 Coverage
+### 13.5 Functional coverage
 
-<!-- Fill the Result column with the numbers from the reports/ files after your run -->
+![Functional coverage](reports/functional_cov.png)
 
-| Metric | Result | Report |
-|---|---|---|
-| Functional coverage (`wr_cg` + `rd_cg`) | `XX %` | [`FIFO_functional_coverage.txt`](reports/FIFO_functional_coverage.txt) |
-| Assertions (5) | `X passed / 0 failed` | [`FIFO_assertion_coverage.txt`](reports/FIFO_assertion_coverage.txt) |
-| Cover directives (4 SVA + reset cover) | `X / 5 hit` | [`FIFO_assertion_coverage.txt`](reports/FIFO_assertion_coverage.txt) |
-| Statement coverage (`ASYNC_FIFO`) | `XX %` | [`FIFO_code_coverage.txt`](reports/FIFO_code_coverage.txt) |
-| Branch coverage | `XX %` | [`FIFO_code_coverage.txt`](reports/FIFO_code_coverage.txt) |
-| Condition / expression coverage | `XX %` | [`FIFO_code_coverage.txt`](reports/FIFO_code_coverage.txt) |
-| Toggle coverage | `XX %` | [`FIFO_code_coverage.txt`](reports/FIFO_code_coverage.txt) |
+Functional coverage answers *"did we test every scenario in the plan?"* It comes from the two covergroups in `FIFO_coverage.sv`:
 
-![Functional coverage](reports/functional_coverage.png)
+| Covergroup | What its bins prove was exercised |
+|---|---|
+| `wr_cg` | writes and idle cycles; FIFO full and not full; `o_full` rising **and** falling; every 4-bit value written (0 … f); **write while full** (`i_wen × o_full` cross) |
+| `rd_cg` | reads and idle cycles; FIFO empty and not empty; `o_empty` rising **and** falling; **read while empty** (`i_ren × o_empty` cross) |
 
-![Code coverage](reports/code_coverage.png)
+Full text report: [`FIFO_cov_report.txt`](reports/FIFO_cov_report.txt)
+
+---
+
+### 13.6 Code coverage
+
+Code coverage answers *"did the stimulus reach every part of the RTL?"* It is collected on `ASYNC_FIFO` and its sub-modules (`Binary2Gray`, `Gray2Binary`, `Double_FF_Sync`).
+
+#### Statement coverage
+
+![Statement coverage](reports/statement_cov.png)
+
+Every executable line ran at least once: the reset assignments, the memory write and `wr_ptr` increment, the memory read and `rd_ptr` increment, the synchronizer flops and the Gray converters.
+
+#### Branch coverage
+
+![Branch coverage](reports/branch_cov.png)
+
+Every `if / else` and `? :` took **both** directions:
+
+- `if (!i_rst_n)` — reset and normal operation.
+- `if (i_wen && !o_full)` — write accepted and write not done (idle **or** blocked by full).
+- `if (i_ren && !o_empty)` — read accepted and read not done (idle **or** blocked by empty).
+- `o_full = (...) ? 1 : 0` and `o_empty = (...) ? 1 : 0` — each flag both set and cleared.
+
+#### Condition coverage
+
+![Condition coverage](reports/condition_cov.png)
+
+For each `if` with more than one input, every input was shown to change the decision on its own:
+
+| Condition | Needs |
+|---|---|
+| `i_wen && !o_full` | `i_wen = 0` (no write), `i_wen = 1 & o_full = 0` (write), `i_wen = 1 & o_full = 1` (**write while full**) |
+| `i_ren && !o_empty` | `i_ren = 0` (no read), `i_ren = 1 & o_empty = 0` (read), `i_ren = 1 & o_empty = 1` (**read while empty**) |
+
+This is why the write-only and read-only phases deliberately keep going past full and past empty.
+
+#### Expression coverage
+
+![Expression coverage](reports/expression_cov.png)
+
+Same idea as condition coverage, applied to the continuous assignments:
+
+- `o_full`: the lap-bit term (`wr_ptr[3] != rd_ptr_G2B[3]`) and the address term (`wr_ptr[2:0] == rd_ptr_G2B[2:0]`) each decided the result — e.g. equal addresses on the **same** lap (empty, not full) vs on **different** laps (full).
+- `o_empty`: `rd_ptr == wr_ptr_G2B` both true and false.
+- The XOR expressions inside `Binary2Gray` / `Gray2Binary`.
+
+#### Toggle coverage
+
+![Toggle coverage](reports/toggle_cov.png)
+
+Every bit of every signal went `0 → 1` **and** `1 → 0`: the data buses, the flags, all four bits of both pointers (the lap bit only toggles after the FIFO has gone round at least once, and back to 0 after two laps), their Gray versions, and both stages of each synchronizer.
+
+---
+
+### 13.7 Assertions
 
 ![Assertions](reports/assertions.png)
 
-Functional coverage shows which scenarios of the verification plan were exercised: write while full, read while empty, `o_full` and `o_empty` both rising and falling, and every 4-bit data value written. Code coverage shows how much of the DUT's lines, branches, conditions and toggles the stimulus reached. Any item below 100 % is explained or excluded in the report.
+Pass and failure counts for every SVA assertion from [section 11](#11-assertions-sva), plus the hit count of every `cover property`. The cover hits matter: they show the scenarios really happened, so the assertions did not pass vacuously.
+
+Full text report: [`FIFO_sva_report.txt`](reports/FIFO_sva_report.txt)
 
 ---
 
