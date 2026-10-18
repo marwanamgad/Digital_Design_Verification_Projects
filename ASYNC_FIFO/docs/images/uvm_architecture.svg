@@ -1,0 +1,83 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='740' viewBox='0 0 1200 740' font-family='Helvetica, Arial, sans-serif'>
+<defs><marker id='aw' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#E07B2E'/></marker><marker id='ar' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#2F6FC9'/></marker><marker id='ak' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#222'/></marker></defs>
+<rect width='1200' height='740' fill='white'/>
+<text x='600.0' y='26' font-size='19' fill='#222' text-anchor='middle' font-weight='bold' >UVM testbench architecture</text>
+<rect x='15' y='40' width='1170' height='685' rx='14' fill='#F7F7F7' stroke='#666' stroke-width='1.4'/>
+<text x='30' y='62' font-size='14' fill='#666' text-anchor='start' font-weight='bold' >module top  (FIFO_top.sv)</text>
+<rect x='35' y='75' width='715' height='630' rx='12' fill='#EEF5EC' stroke='#4C8C4A' stroke-width='1.6'/>
+<text x='50' y='98' font-size='15' fill='#2E6B2C' text-anchor='start' font-weight='bold' >uvm_test_top : FIFO_test</text>
+<rect x='55' y='112' width='330' height='64' rx='8' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='220.0' y='141.0' font-size='13' fill='#222' text-anchor='middle' font-weight='bold' >FIFO_reset_sequence  -&gt;  FIFO_main_sequence</text>
+<text x='220.0' y='159.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >write-only | read-only | mixed random</text>
+<rect x='420' y='112' width='310' height='64' rx='8' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='575.0' y='141.0' font-size='13' fill='#222' text-anchor='middle' font-weight='bold' >FIFO_config</text>
+<text x='575.0' y='159.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >FIFO_vif + sel_mode = UVM_ACTIVE</text>
+<rect x='55' y='200' width='675' height='490' rx='12' fill='#F3EEF9' stroke='#7A5BB0' stroke-width='1.6'/>
+<text x='70' y='222' font-size='15' fill='#5A3E8E' text-anchor='start' font-weight='bold' >env : FIFO_env</text>
+<rect x='75' y='235' width='400' height='440' rx='12' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='90' y='257' font-size='14' fill='#222' text-anchor='start' font-weight='bold' >agt : FIFO_agent  (UVM_ACTIVE)</text>
+<rect x='100' y='280' width='170' height='56' rx='8' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='185.0' y='305.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >sqr</text>
+<text x='185.0' y='323.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >FIFO_sequencer</text>
+<rect x='100' y='590' width='170' height='56' rx='8' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='185.0' y='615.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >drv</text>
+<text x='185.0' y='633.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >FIFO_driver (fork wr | rd)</text>
+<rect x='290' y='430' width='165' height='56' rx='8' fill='white' stroke='#2F6FC9' stroke-width='1.6'/>
+<text x='372.5' y='455.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >mon</text>
+<text x='372.5' y='473.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >FIFO_monitor (2 threads)</text>
+<polyline points='185,176 185,280' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<text x='192' y='193' font-size='12' fill='#666' text-anchor='start' font-weight='normal' >start(env.agt.sqr)</text>
+<polyline points='185,336 185,590' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<text x='192' y='470' font-size='12' fill='#666' text-anchor='start' font-weight='normal' >seq_item_port /</text>
+<text x='192' y='486' font-size='12' fill='#666' text-anchor='start' font-weight='normal' >seq_item_export</text>
+<rect x='468' y='358' width='14' height='14' fill='#222'/>
+<text x='462' y='352' font-size='12' fill='#222' text-anchor='end' font-weight='bold' >agt_ap</text>
+<polyline points='372,430 372,365 468,365' fill='none' stroke='#222' stroke-width='1.8'  />
+<text x='378' y='400' font-size='12' fill='#666' text-anchor='start' font-weight='normal' >mon_ap</text>
+<rect x='530' y='320' width='185' height='90' rx='8' fill='white' stroke='#2F6FC9' stroke-width='1.6'/>
+<text x='622.5' y='362.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >sb</text>
+<text x='622.5' y='380.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >FIFO_scoreboard</text>
+<text x='622' y='392' font-size='10.5' fill='#666' text-anchor='middle' font-weight='normal' >WR: o_full | RD: o_empty,o_rdata</text>
+<rect x='530' y='495' width='185' height='64' rx='8' fill='white' stroke='#4C8C4A' stroke-width='1.6'/>
+<text x='622.5' y='524.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >cov</text>
+<text x='622.5' y='542.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >FIFO_coverage: wr_cg, rd_cg</text>
+<polyline points='482,365 530,365' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='505,365 505,527 530,527' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='575,176 575,215 430,215 430,235' fill='none' stroke='#666' stroke-width='1.8' stroke-dasharray='5 4' marker-end='url(#ak)'/>
+<text x='585' y='196' font-size='12' fill='#666' text-anchor='start' font-weight='normal' >config_db set("env.agt", "CFG")</text>
+<rect x='785' y='85' width='180' height='100' rx='8' fill='#FFF8D6' stroke='#222' stroke-width='1.6'/>
+<text x='875.0' y='132.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >DUT</text>
+<text x='875.0' y='150.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >ASYNC_FIFO</text>
+<text x='875' y='170' font-size='10.5' fill='#666' text-anchor='middle' font-weight='normal' >+ bind ASYNCH_FIFO_sva (u_sva)</text>
+<rect x='985' y='85' width='180' height='100' rx='8' fill='#FFF8D6' stroke='#222' stroke-width='1.6'/>
+<text x='1075.0' y='132.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >DUT_GOLD</text>
+<text x='1075.0' y='150.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >ASYNC_FIFO_GOLD</text>
+<rect x='785' y='250' width='380' height='250' rx='10' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='975' y='275' font-size='15' fill='#222' text-anchor='middle' font-weight='bold' >FIFO_vif : FIFO_if</text>
+<text x='975' y='296' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >generates i_wclk (period 20) and i_rclk (period 10)</text>
+<rect x='800' y='310' width='170' height='80' rx='6' fill='#FDF1E7' stroke='#E07B2E'/>
+<text x='885' y='333' font-size='12' fill='#E07B2E' text-anchor='middle' font-weight='bold' >@(posedge i_wclk)</text>
+<text x='885' y='353' font-size='12' fill='#222' text-anchor='middle' font-weight='normal' >cb_driver_wr   (#1)</text>
+<text x='885' y='373' font-size='12' fill='#222' text-anchor='middle' font-weight='normal' >cb_monitor_wr  (#1step)</text>
+<rect x='980' y='310' width='170' height='80' rx='6' fill='#EAF1FB' stroke='#2F6FC9'/>
+<text x='1065' y='333' font-size='12' fill='#2F6FC9' text-anchor='middle' font-weight='bold' >@(posedge i_rclk)</text>
+<text x='1065' y='353' font-size='12' fill='#222' text-anchor='middle' font-weight='normal' >cb_driver_rd   (#1)</text>
+<text x='1065' y='373' font-size='12' fill='#222' text-anchor='middle' font-weight='normal' >cb_monitor_rd  (#1step)</text>
+<text x='975' y='418' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >same i_* inputs go to DUT and DUT_GOLD;</text>
+<text x='975' y='436' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >outputs come back as o_*  and  o_*_gold</text>
+<polyline points='875,250 875,185' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='1075,250 1075,185' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='905,185 905,250' fill='none' stroke='#222' stroke-width='1.8' stroke-dasharray='4 3' marker-end='url(#ak)'/>
+<polyline points='1105,185 1105,250' fill='none' stroke='#222' stroke-width='1.8' stroke-dasharray='4 3' marker-end='url(#ak)'/>
+<polyline points='270,618 765,618 765,482 785,482' fill='none' stroke='#E07B2E' stroke-width='2.2'  marker-end='url(#aw)'/>
+<text x='490' y='610' font-size='12' fill='#E07B2E' text-anchor='start' font-weight='bold' >drives i_rst_n, i_wen, i_wdata, i_ren</text>
+<polyline points='785,458 455,458' fill='none' stroke='#2F6FC9' stroke-width='2.2'  marker-end='url(#ar)'/>
+<text x='620' y='450' font-size='12' fill='#2F6FC9' text-anchor='middle' font-weight='bold' >samples inputs + outputs</text>
+<rect x='785' y='530' width='380' height='170' rx='10' fill='white' stroke='#666' stroke-dasharray='5 4'/>
+<text x='800' y='556' font-size='12.5' fill='#222' text-anchor='start' font-weight='bold' >How the interface reaches the classes:</text>
+<text x='800' y='581' font-size='12.5' fill='#222' text-anchor='start' font-weight='normal' >1. top: config_db set(virtual FIFO_if, "FIFO_IF")</text>
+<text x='800' y='606' font-size='12.5' fill='#222' text-anchor='start' font-weight='normal' >2. test: get it, store in FIFO_config.FIFO_vif</text>
+<text x='800' y='631' font-size='12.5' fill='#222' text-anchor='start' font-weight='normal' >3. test: config_db set(FIFO_config, "CFG")</text>
+<text x='800' y='656' font-size='12.5' fill='#222' text-anchor='start' font-weight='normal' >4. agent: get CFG, hand vif to drv and mon</text>
+<text x='800' y='681' font-size='12.5' fill='#222' text-anchor='start' font-weight='normal' >5. top: run_test()  +UVM_TESTNAME=FIFO_test</text>
+</svg>

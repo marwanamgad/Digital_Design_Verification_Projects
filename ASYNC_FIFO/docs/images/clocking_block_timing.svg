@@ -1,0 +1,37 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='980' height='380' viewBox='0 0 980 380' font-family='Helvetica, Arial, sans-serif'>
+<defs><marker id='aw' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#E07B2E'/></marker><marker id='ar' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#2F6FC9'/></marker><marker id='ak' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#222'/></marker></defs>
+<rect width='980' height='380' fill='white'/>
+<text x='490.0' y='28' font-size='17' fill='#222' text-anchor='middle' font-weight='bold' >Clocking blocks: drive #1 after the edge, sample #1step just before it (write side)</text>
+<text x='100' y='85' font-size='14' fill='#222' text-anchor='end' font-weight='bold' >i_wclk</text>
+<text x='100' y='155' font-size='14' fill='#222' text-anchor='end' font-weight='bold' >i_wen</text>
+<text x='100' y='215' font-size='14' fill='#222' text-anchor='end' font-weight='bold' >i_wdata</text>
+<text x='100' y='275' font-size='14' fill='#222' text-anchor='end' font-weight='bold' >wr_ptr</text>
+<polyline points='120,98 250,98 250,62 380,62 380,98 510,98 510,62 640,62 640,98 770,98 770,62 900,62 900,98 926,98' fill='none' stroke='#555' stroke-width='2'  />
+<polyline points='120,166 263,166 263,134 783,134 783,166 926,166' fill='none' stroke='#E07B2E' stroke-width='2'  />
+<polygon points='120,210 125,195 258,195 263,210 258,225 125,225' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='191.5' y='215' font-size='13' fill='#E07B2E' text-anchor='middle' font-weight='bold' >0</text>
+<polygon points='263,210 268,195 518,195 523,210 518,225 268,225' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='393.0' y='215' font-size='13' fill='#E07B2E' text-anchor='middle' font-weight='bold' >7</text>
+<polygon points='523,210 528,195 778,195 783,210 778,225 528,225' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='653.0' y='215' font-size='13' fill='#E07B2E' text-anchor='middle' font-weight='bold' >6</text>
+<polygon points='783,210 788,195 921,195 926,210 921,225 788,225' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='854.5' y='215' font-size='13' fill='#E07B2E' text-anchor='middle' font-weight='bold' >f</text>
+<polygon points='120,270 125,255 505,255 510,270 505,285 125,285' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='315.0' y='275' font-size='13' fill='#222' text-anchor='middle' font-weight='bold' >0</text>
+<polygon points='510,270 515,255 765,255 770,270 765,285 515,285' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='640.0' y='275' font-size='13' fill='#222' text-anchor='middle' font-weight='bold' >1</text>
+<polygon points='770,270 775,255 921,255 926,270 921,285 775,285' fill='white' stroke='#222' stroke-width='1.6'/>
+<text x='848.0' y='275' font-size='13' fill='#222' text-anchor='middle' font-weight='bold' >2</text>
+<line x1='250' y1='55' x2='250' y2='300' stroke='#999' stroke-dasharray='4 4'/>
+<line x1='510' y1='55' x2='510' y2='300' stroke='#999' stroke-dasharray='4 4'/>
+<line x1='770' y1='55' x2='770' y2='300' stroke='#999' stroke-dasharray='4 4'/>
+<text x='510' y='320' font-size='13' fill='#222' text-anchor='middle' font-weight='bold' >posedge i_wclk @ t=30</text>
+<circle cx='506' cy='134' r='6' fill='#2F6FC9'/>
+<circle cx='506' cy='210' r='6' fill='#2F6FC9'/>
+<circle cx='506' cy='270' r='6' fill='#2F6FC9'/>
+<text x='496' y='345' font-size='13' fill='#2F6FC9' text-anchor='end' font-weight='bold' >monitor (#1step) sees: wen=1, wdata=7, wr_ptr=0  -&gt; the values the DUT used</text>
+<circle cx='523' cy='210' r='6' fill='#E07B2E'/>
+<text x='537' y='345' font-size='13' fill='#E07B2E' text-anchor='start' font-weight='bold' >driver (#1) applies next item at t=31</text>
+<text x='520' y='248' font-size='12' fill='#666' text-anchor='start' font-weight='normal' >updates at the edge (&lt;=)</text>
+<text x='263' y='112' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >t=11</text>
+</svg>

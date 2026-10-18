@@ -1,0 +1,70 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /top/DUT/u_sva
+=== Design Unit: work.ASYNCH_FIFO_sva
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       5         5         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top/DUT/u_sva/RST_ASSERTION
+                     FIFO_sva.sv(26)                    0          1
+/top/DUT/u_sva/full_cond_assertion
+                     FIFO_sva.sv(66)                    0          1
+/top/DUT/u_sva/empty_cond_assertion
+                     FIFO_sva.sv(67)                    0          1
+/top/DUT/u_sva/wr_ptr_cond_assertion
+                     FIFO_sva.sv(68)                    0          1
+/top/DUT/u_sva/rd_ptr_cond_assertion
+                     FIFO_sva.sv(69)                    0          1
+
+Directive Coverage:
+    Directives                       5         5         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/top/DUT/u_sva/RST_COVER                 ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(27)   55 Covered   
+/top/DUT/u_sva/full_cond_cover           ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(75)   92 Covered   
+/top/DUT/u_sva/empty_cond_cover          ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(76)  230 Covered   
+/top/DUT/u_sva/wr_ptr_cond_cover         ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(78) 1447 Covered   
+/top/DUT/u_sva/rd_ptr_cond_cover         ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(80) 1263 Covered   
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/top/DUT/u_sva/RST_COVER                 ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(27)   55 Covered   
+/top/DUT/u_sva/full_cond_cover           ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(75)   92 Covered   
+/top/DUT/u_sva/empty_cond_cover          ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(76)  230 Covered   
+/top/DUT/u_sva/wr_ptr_cond_cover         ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(78) 1447 Covered   
+/top/DUT/u_sva/rd_ptr_cond_cover         ASYNCH_FIFO_sva Verilog  SVA  FIFO_sva.sv(80) 1263 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 5
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/top/DUT/u_sva/RST_ASSERTION
+                     FIFO_sva.sv(26)                    0          1
+/top/DUT/u_sva/full_cond_assertion
+                     FIFO_sva.sv(66)                    0          1
+/top/DUT/u_sva/empty_cond_assertion
+                     FIFO_sva.sv(67)                    0          1
+/top/DUT/u_sva/wr_ptr_cond_assertion
+                     FIFO_sva.sv(68)                    0          1
+/top/DUT/u_sva/rd_ptr_cond_assertion
+                     FIFO_sva.sv(69)                    0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+

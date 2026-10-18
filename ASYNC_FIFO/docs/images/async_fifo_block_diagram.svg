@@ -1,0 +1,72 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='520' viewBox='0 0 1200 520' font-family='Helvetica, Arial, sans-serif'>
+<defs><marker id='aw' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#E07B2E'/></marker><marker id='ar' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#2F6FC9'/></marker><marker id='ak' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#222'/></marker></defs>
+<rect width='1200' height='520' fill='white'/>
+<text x='600.0' y='30' font-size='19' fill='#222' text-anchor='middle' font-weight='bold' >ASYNC_FIFO: two clock domains, only Gray-coded pointers cross</text>
+<rect x='10' y='50' width='575' height='420' rx='12' fill='#FDF1E7'/>
+<rect x='615' y='50' width='575' height='420' rx='12' fill='#EAF1FB'/>
+<text x='30' y='76' font-size='15' fill='#E07B2E' text-anchor='start' font-weight='bold' >WRITE DOMAIN  (i_wclk)</text>
+<text x='1170' y='76' font-size='15' fill='#2F6FC9' text-anchor='end' font-weight='bold' >READ DOMAIN  (i_rclk)</text>
+<line x1='600' y1='50' x2='600' y2='470' stroke='#222' stroke-width='1.5' stroke-dasharray='6 5'/>
+<text x='600' y='492' font-size='13' fill='#666' text-anchor='middle' font-weight='normal' >clock-domain boundary</text>
+<rect x='490' y='90' width='220' height='70' rx='8' fill='#FFF8D6' stroke='#222' stroke-width='1.6'/>
+<text x='600.0' y='122.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >MEM [0:7]</text>
+<text x='600.0' y='140.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >dual-port: write @i_wclk, read @i_rclk</text>
+<text x='30' y='120' font-size='13' fill='#E07B2E' text-anchor='start' font-weight='bold' >i_wen, i_wdata</text>
+<polyline points='140,125 490,125' fill='none' stroke='#E07B2E' stroke-width='1.8'  marker-end='url(#aw)'/>
+<text x='300' y='117' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >write if i_wen &amp;&amp; !o_full, addr = wr_ptr[2:0]</text>
+<polyline points='710,125 1000,125' fill='none' stroke='#2F6FC9' stroke-width='1.8'  marker-end='url(#ar)'/>
+<text x='855' y='117' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >read if i_ren &amp;&amp; !o_empty, addr = rd_ptr[2:0]</text>
+<text x='1008' y='130' font-size='13' fill='#2F6FC9' text-anchor='start' font-weight='bold' >o_rdata</text>
+<rect x='30' y='200' width='150' height='50' rx='8' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='105.0' y='222.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >wr_ptr</text>
+<text x='105.0' y='240.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >4-bit binary reg</text>
+<rect x='210' y='200' width='150' height='50' rx='8' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='285.0' y='222.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >Binary2Gray</text>
+<text x='285.0' y='240.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >WR_B2G</text>
+<rect x='625' y='200' width='150' height='50' rx='8' fill='white' stroke='#2F6FC9' stroke-width='1.6'/>
+<text x='700.0' y='222.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >Double_FF_Sync</text>
+<text x='700.0' y='240.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >clocked by i_rclk</text>
+<rect x='805' y='200' width='150' height='50' rx='8' fill='white' stroke='#2F6FC9' stroke-width='1.6'/>
+<text x='880.0' y='222.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >Gray2Binary</text>
+<text x='880.0' y='240.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >WR_G2B</text>
+<rect x='1000' y='200' width='170' height='50' rx='8' fill='white' stroke='#2F6FC9' stroke-width='1.6'/>
+<text x='1085.0' y='222.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >empty logic</text>
+<text x='1085.0' y='240.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >rd_ptr == wr_ptr_G2B</text>
+<polyline points='180,225 210,225' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='360,225 625,225' fill='none' stroke='#E07B2E' stroke-width='2.4'  marker-end='url(#aw)'/>
+<text x='492' y='217' font-size='12' fill='#E07B2E' text-anchor='middle' font-weight='bold' >wr_ptr_B2G (Gray)</text>
+<polyline points='775,225 805,225' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='955,225 1000,225' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<text x='978' y='195' font-size='11' fill='#666' text-anchor='middle' font-weight='normal' >wr_ptr_G2B</text>
+<rect x='1000' y='330' width='170' height='50' rx='8' fill='white' stroke='#2F6FC9' stroke-width='1.6'/>
+<text x='1085.0' y='352.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >rd_ptr</text>
+<text x='1085.0' y='370.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >4-bit binary reg</text>
+<rect x='805' y='330' width='150' height='50' rx='8' fill='white' stroke='#2F6FC9' stroke-width='1.6'/>
+<text x='880.0' y='352.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >Binary2Gray</text>
+<text x='880.0' y='370.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >RD_B2G</text>
+<rect x='395' y='330' width='150' height='50' rx='8' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='470.0' y='352.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >Double_FF_Sync</text>
+<text x='470.0' y='370.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >clocked by i_wclk</text>
+<rect x='210' y='330' width='150' height='50' rx='8' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='285.0' y='352.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >Gray2Binary</text>
+<text x='285.0' y='370.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >RD_G2B</text>
+<rect x='20' y='330' width='170' height='50' rx='8' fill='white' stroke='#E07B2E' stroke-width='1.6'/>
+<text x='105.0' y='352.0' font-size='14' fill='#222' text-anchor='middle' font-weight='bold' >full logic</text>
+<text x='105.0' y='370.0' font-size='12' fill='#666' text-anchor='middle' font-weight='normal' >MSB differs, [2:0] equal</text>
+<polyline points='1000,355 955,355' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='805,355 545,355' fill='none' stroke='#2F6FC9' stroke-width='2.4'  marker-end='url(#ar)'/>
+<text x='675' y='347' font-size='12' fill='#2F6FC9' text-anchor='middle' font-weight='bold' >rd_ptr_B2G (Gray)</text>
+<polyline points='395,355 360,355' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<polyline points='210,355 190,355' fill='none' stroke='#222' stroke-width='1.8'  marker-end='url(#ak)'/>
+<text x='200' y='395' font-size='11' fill='#666' text-anchor='middle' font-weight='normal' >rd_ptr_G2B</text>
+<polyline points='105,250 105,330' fill='none' stroke='#E07B2E' stroke-width='1.8'  marker-end='url(#aw)'/>
+<text x='112' y='295' font-size='11' fill='#666' text-anchor='start' font-weight='normal' >wr_ptr</text>
+<polyline points='1085,330 1085,250' fill='none' stroke='#2F6FC9' stroke-width='1.8'  marker-end='url(#ar)'/>
+<text x='1078' y='295' font-size='11' fill='#666' text-anchor='end' font-weight='normal' >rd_ptr</text>
+<polyline points='105,380 105,425' fill='none' stroke='#E07B2E' stroke-width='1.8'  marker-end='url(#aw)'/>
+<text x='115' y='422' font-size='14' fill='#E07B2E' text-anchor='start' font-weight='bold' >o_full</text>
+<polyline points='1085,200 1085,158' fill='none' stroke='#2F6FC9' stroke-width='1.8'  marker-end='url(#ar)'/>
+<text x='1095' y='170' font-size='14' fill='#2F6FC9' text-anchor='start' font-weight='bold' >o_empty</text>
+<text x='1170' y='452' font-size='12' fill='#2F6FC9' text-anchor='end' font-weight='normal' >o_empty uses its own rd_ptr + the synced wr_ptr</text>
+<text x='30' y='452' font-size='12' fill='#E07B2E' text-anchor='start' font-weight='normal' >o_full uses its own wr_ptr + the synced rd_ptr</text>
+</svg>
